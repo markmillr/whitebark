@@ -20,9 +20,9 @@ import numpy as np
 import scipy.constants as sc
 
 # Constants
-AU = 149.60e9 # Astronomical Unit [m]
-sigma = 5.67e-8 # Stefan-Boltzmann constant [W.m-2.K-4]
-G = 6.67428e-11 # Gravitational constant
+sigma = sc.sigma # Stefan-Boltzmann constant [W.m-2.K-4]
+AU = sc.au # Astronomical Unit [m]
+G = sc.G # Gravitational constant
 
 
 class Planet:
@@ -285,7 +285,7 @@ Moon = Planet()
 Moon.name = 'Moon' #Name of the planet
 Moon.R = 1.7374e6 #Mean radius of planet [m]
 Moon.g = 1.62 #Surface gravitational acceleration [m.s-2]
-Moon.S = 1361. #Annual mean solar constant [W.m-2]
+Moon.S = 1361.1 # Solar constant at Earth TOA, +/- 0.5 [W m-2] (Gueymard, 2018)
 Moon.psurf = 3.0e-10 # Surface pressure [Pa]
 
 Moon.albedo = .12 #Bond albedo
