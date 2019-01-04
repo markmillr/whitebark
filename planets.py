@@ -294,7 +294,9 @@ Moon.albedo = 0.115 # Mean bond albedo value (ranges from 0.07 to 0.16) from Vas
 Moon.albedoCoef = [0.06, 0.25] # Coefficients in variable albedo model
 #Moon.emissivity = .95 #IR emissivity
 Moon.emissivity = 0.98 # T7 emissivity (Vasavada et al., 2012)
-Moon.Qb = 0.018 #Heat flow [W.m-2]
+#Moon.Qb = 0.018 #Heat flow [W.m-2]
+Moon.Qb = 11e-3 # Mean lunar geothermal surface flux [W m^-2] (Siegler and Smrekar (2014)
+
 # Thermophysical properties:
 Moon.Gamma = 55. #Thermal inertia [J.m-2.K-1.s-1/2]
 Moon.ks = 7.4e-4 # Solid (phonon) conductivity at surface [W.m-1.K-1]

@@ -97,7 +97,7 @@ ax.set_title('Model lunar equatorial sfc temp with: S, q_c, q_g, q_soil')
 plt.show()
 
 
-def plot(x, y, *title):
+def plot(x=None, y=None, title=None):
 
 	fig, ax = plt.subplots()
 	ax.scatter(x, y)
@@ -114,7 +114,9 @@ def plot(x, y, *title):
 
 	return plt.show()
 
-plot(lunarhour, T_s)
+
+plot_title = 'Model lunar equatorial sfc temp with: S, q_c, q_g, q_soil'
+plot(x=lunarhour, y=T_s, title = plot_title)
 #plotter.plot(lunarhour, T_s)
 
 
