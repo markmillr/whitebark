@@ -63,60 +63,10 @@ for n in range(0, Nt):
 
 
 
-# Plot solar and t arrays with matplotlib
-
-"""
-fig, ax = plt.subplots()
-ax.scatter(lunarhour, T_s)
-ax.plot(lunarhour, T_s)
-ax.set_xlim(0,24)
-ax.set_ylim(-20,400)
-ax.set_xticks(np.arange(0, 25, step=6))
-ax.set_xlabel('Time (lunar hours)')
-ax.set_ylabel('Surface temperature (K)')
-ax.annotate('Max temp: {:.0f} K'.format(np.amax(T_s)), xy=(17,350))
-ax.annotate('Min temp: {:.0f} K'.format(np.amin(T_s)), xy=(17,325))
-ax.set_title('Model lunar equatorial sfc temperature, solar heating only')
-plt.show()
-"""
-
-fig, ax = plt.subplots()
-ax.scatter(lunarhour, T_s)
-ax.plot(lunarhour, T_s)
-ax.set_xlim(0,24)
-ax.set_ylim(-20,400)
-ax.set_xticks(np.arange(0, 25, step=6))
-ax.set_xlabel('Time (lunar hours)')
-ax.set_ylabel('Surface temperature (K)')
-ax.annotate('Max temp: {:.0f} K'.format(np.amax(T_s)), xy=(17,350))
-ax.annotate('Min temp: {:.0f} K'.format(np.amin(T_s)), xy=(17,325))
-#ax.annotate('Min temp: {:.1f} K'.format(np.amin(T_s)), xy=(17,325))
-#ax.set_title('Model lunar equatorial sfc temperature, solar + cosmic heating')
-#ax.set_title('Model lunar equatorial sfc temp, solar, cosmic, geothermal heating')
-ax.set_title('Model lunar equatorial sfc temp with: S, q_c, q_g, q_soil')
-plt.show()
-
-
-def plot(x=None, y=None, title=None):
-
-	fig, ax = plt.subplots()
-	ax.scatter(x, y)
-	ax.plot(x, y)
-	ax.set_xlim(0,24)
-	ax.set_ylim(-20,400)
-	ax.set_xticks(np.arange(0, 25, step=6))
-	ax.set_xlabel('Time (lunar hours)')
-	ax.set_ylabel('Surface temperature (K)')
-	ax.annotate('Max temp: {:.0f} K'.format(np.amax(T_s)), xy=(17,350))
-	ax.annotate('Min temp: {:.0f} K'.format(np.amin(T_s)), xy=(17,325))
-	if(title):
-		ax.set_title(title)
-
-	return plt.show()
-
+# Plot arrays using local plotter module
 
 plot_title = 'Model lunar equatorial sfc temp with: S, q_c, q_g, q_soil'
-plot(x=lunarhour, y=T_s, title = plot_title)
+plotter.plot(x=lunarhour, y=T_s, title = plot_title)
 #plotter.plot(lunarhour, T_s)
 
 
