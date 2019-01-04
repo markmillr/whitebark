@@ -2,9 +2,9 @@
 # Planetary Database                                       #
 # Modified by Mark A. Miller from Paul Hayne's             # 
 # "planets.py", in turn adapted from the original          #
-# "planets.py" library by Raymond T. Pierrehumbert         #                     #
+# "planets.py" library by Raymond T. Pierrehumbert         #
 #                                                          #
-# Last modified: June, 2017                                #
+# Last modified: January, 2019                             #
 #                                                          #
 # Sources:                                                 #
 #     1. http://nssdc.gsfc.nasa.gov/planetary/factsheet/   #
@@ -17,6 +17,7 @@
 
 # Dependencies
 import numpy as np
+import scipy.constants as sc
 
 # Constants
 AU = 149.60e9 # Astronomical Unit [m]
