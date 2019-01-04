@@ -1,7 +1,8 @@
 ############################################################
 # Planetary Database                                       #
-# Modified by Paul Hayne from the "planets.py" library by  #
-# Raymond T. Pierrehumbert                                 #
+# Modified by Mark A. Miller from Paul Hayne's             # 
+# "planets.py", in turn adapted from the original          #
+# "planets.py" library by Raymond T. Pierrehumbert         #                     #
 #                                                          #
 # Last modified: June, 2017                                #
 #                                                          #
@@ -14,13 +15,14 @@
 
 # All units M.K.S. unless otherwise stated
 
+# Dependencies
+import numpy as np
+
 # Constants
 AU = 149.60e9 # Astronomical Unit [m]
 sigma = 5.67e-8 # Stefan-Boltzmann constant [W.m-2.K-4]
 G = 6.67428e-11 # Gravitational constant
 
-# Dependencies
-import numpy as np
 
 class Planet:
     '''
