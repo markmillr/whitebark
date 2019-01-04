@@ -5,8 +5,10 @@
 import matplotlib.pyplot as plt    # for plotting
 import numpy as np    # numpy arrays for calculations and matplotlib plots
 from scipy import constants
-import planets
 
+# Intra-package references
+import planets
+import plotter
 
 pi = planets.pi    # so we don't have to type np.pi all the time
 sigma = planets.sigma
@@ -16,7 +18,6 @@ sigma = planets.sigma
 S_E = planets.Moon.S
 albedo = planets.Moon.albedo
 P_moon = planets.Moon.day
-#epsilon = 0.98 	# T7 emissivity (Vasavada et al., 2012)
 epsilon = planets.Moon.emissivity
 q_c = planets.q_c
 q_g = planets.Moon.Qb
@@ -94,6 +95,27 @@ ax.annotate('Min temp: {:.0f} K'.format(np.amin(T_s)), xy=(17,325))
 #ax.set_title('Model lunar equatorial sfc temp, solar, cosmic, geothermal heating')
 ax.set_title('Model lunar equatorial sfc temp with: S, q_c, q_g, q_soil')
 plt.show()
+
+
+def plot(x, y, *title):
+
+	fig, ax = plt.subplots()
+	ax.scatter(x, y)
+	ax.plot(x, y)
+	ax.set_xlim(0,24)
+	ax.set_ylim(-20,400)
+	ax.set_xticks(np.arange(0, 25, step=6))
+	ax.set_xlabel('Time (lunar hours)')
+	ax.set_ylabel('Surface temperature (K)')
+	ax.annotate('Max temp: {:.0f} K'.format(np.amax(T_s)), xy=(17,350))
+	ax.annotate('Min temp: {:.0f} K'.format(np.amin(T_s)), xy=(17,325))
+	if(title):
+		ax.set_title(title)
+
+	return plt.show()
+
+plot(lunarhour, T_s)
+#plotter.plot(lunarhour, T_s)
 
 
 """
