@@ -20,9 +20,11 @@ import numpy as np
 import scipy.constants as sc
 
 # Constants
+pi = np.pi
 sigma = sc.sigma # Stefan-Boltzmann constant [W.m-2.K-4]
 AU = sc.au # Astronomical Unit [m]
 G = sc.G # Gravitational constant
+q_c = 3.13e-6 # Cosmic background radiation flux [W m^-2] (Fixsen, 2009)
 
 
 class Planet:
@@ -288,9 +290,10 @@ Moon.g = 1.62 #Surface gravitational acceleration [m.s-2]
 Moon.S = 1361.1 # Solar constant at Earth TOA, +/- 0.5 [W m-2] (Gueymard, 2018)
 Moon.psurf = 3.0e-10 # Surface pressure [Pa]
 
-Moon.albedo = .12 #Bond albedo
+Moon.albedo = 0.115 # Mean bond albedo value (ranges from 0.07 to 0.16) from Vasavada et al. (2012)
 Moon.albedoCoef = [0.06, 0.25] # Coefficients in variable albedo model
-Moon.emissivity = .95 #IR emissivity
+#Moon.emissivity = .95 #IR emissivity
+Moon.emissivity = 0.98 # T7 emissivity (Vasavada et al., 2012)
 Moon.Qb = 0.018 #Heat flow [W.m-2]
 # Thermophysical properties:
 Moon.Gamma = 55. #Thermal inertia [J.m-2.K-1.s-1/2]

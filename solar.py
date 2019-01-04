@@ -1,21 +1,25 @@
 # solar.py
 
+# Dependencies
+
 import matplotlib.pyplot as plt    # for plotting
 import numpy as np    # numpy arrays for calculations and matplotlib plots
 from scipy import constants
+import planets
 
 
-pi = np.pi    # so we don't have to type np.pi all the time
-sigma = constants.sigma
+pi = planets.pi    # so we don't have to type np.pi all the time
+sigma = planets.sigma
 
 # Moon climate parameters
 
-S_E = 1361.1 # Solar constant at Earth TOA, +/- 0.5 [W m-2] (Gueymard, 2018)
-albedo = 0.115 # Mean bond albedo value (ranges from 0.07 to 0.16) from Vasavada et al. (2012)
-P_moon = 29.53059*24.*3600. #Mean length of Moon SYNODIC day [s]
-epsilon = 0.98 	# T7 emissivity (Vasavada et al., 2012)
-q_c = 3.13e-6 # Cosmic background radiation flux [W m^-2] (Fixsen, 2009)
-q_g = 11e-3 # Mean lunar geothermal surface flux [W m^-2] (Siegler and Smrekar (2014)
+S_E = planets.Moon.S
+albedo = planets.Moon.albedo
+P_moon = planets.Moon.day
+#epsilon = 0.98 	# T7 emissivity (Vasavada et al., 2012)
+epsilon = planets.Moon.emissivity
+q_c = planets.q_c
+q_g = planets.Moon.Qb
 
 Sabs = S_E * (1.0 - albedo)
 
