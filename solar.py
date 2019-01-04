@@ -41,6 +41,13 @@ psi = np.zeros(Nt) # clipping function
 solar = np.zeros(Nt) # array of insolation values to be calculated 
 T_s = np.zeros(Nt) # time array of surface temperatures
 
+# function initializes numpy arrays
+def initialize(array):
+	array = np.zeros(Nt)
+	return array
+
+initialize(T)
+
 # Create numpy array for lunar hour
 
 lunarhour = np.zeros(Nt)
@@ -67,34 +74,4 @@ for n in range(0, Nt):
 
 plot_title = 'Model lunar equatorial sfc temp with: S, q_c, q_g, q_soil'
 plotter.plot(x=lunarhour, y=T_s, title = plot_title)
-#plotter.plot(lunarhour, T_s)
 
-
-"""
-ax.plot(lunarhour, solar)
-ax.xlabel('Time (lunar hours)')
-ax.ylabel('Solar irradiance (W/m2)')
-ax.xlim(0,24)
-ax.xticks(np.arange(0, 25, step=6))
-plt.show()
-
-
-plt.scatter(lunarhour, solar)
-plt.plot(lunarhour, solar)
-plt.xlabel('Time (lunar hours)')
-plt.ylabel('Solar irradiance (W/m2)')
-plt.xlim(0,24)
-plt.xticks(np.arange(0, 25, step=6))
-plt.show()
-"""
-
-"""
-plt.scatter(lunarhour, T_s)
-plt.plot(lunarhour, T_s)
-plt.xlabel('Time (lunar hours)')
-plt.ylabel('Surface temperature (K)')
-plt.xlim(0,24)
-plt.ylim(-20, 400)
-plt.xticks(np.arange(0, 25, step=6))
-plt.show()
-"""
