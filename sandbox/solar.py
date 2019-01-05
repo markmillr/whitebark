@@ -28,7 +28,6 @@ Sabs = S_E * (1.0 - albedo)
 q_soil = epsilon*sigma*(100**4) - q_c - q_g
 print('q_soil: {:.2f} W m-2'.format(q_soil))
 
-
 # Model parameters
 modelruntime = 2*P_moon
 dt = 1.0 * 3600. # timestep in seconds (1.0*3600*24 = 1 earth day)
@@ -40,13 +39,6 @@ h = np.zeros(Nt) # hour angle
 psi = np.zeros(Nt) # clipping function
 solar = np.zeros(Nt) # array of insolation values to be calculated 
 T_s = np.zeros(Nt) # time array of surface temperatures
-
-# function initializes numpy arrays
-def initialize(array):
-	array = np.zeros(Nt)
-	return array
-
-initialize(T)
 
 # Create numpy array for lunar hour
 
