@@ -1,3 +1,32 @@
+
+#   1-D thermal conduction model of lunar regolith. Outputs lunar surface temperature.
+#
+#   Author: Mark A. Miller (github.com/markmillr)
+#
+#   License: MIT (./LICENSE.txt)
+#
+#   Adapted from numerical thermal model documented in: 
+#
+#   Hayne, P. O., Bandfield, J. L., 
+#   Siegler, M. A., Vasavada, A. R., Ghent, R. R., Williams, J.-P., ... Paige, D. A. (2017). 
+#   Global regolith thermophysical properties of the Moon from the Diviner Lunar Radiometer 
+#   Experiment. Journal of Geophysical Research: Planets, 122, 2371–2400. 
+#   https://doi.org/10.1002/ 2017JE005387
+#
+#   Current features:
+#
+#   Uniform grid spacing dz
+#   Nonlinear (temperature-driven) soil thermodynamic properties (conductivity, thermal diffusivity)
+#
+#   TODO:
+#
+#   Implement geometrically increasing grid spacing dz (requires different numerical solution)
+#   Access planetary parameters as an import from the planets.py database
+#   Create Planet and Model classes for reusability
+#   
+#   Long-range: Create GUI
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.constants as spc
