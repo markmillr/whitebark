@@ -5,6 +5,8 @@
 #
 #   License: MIT (./LICENSE.txt)
 #
+#   This model is intended to accompany the text Modeling Planetary Climates with Python by Mark A. Miller (Miller, in press)
+#
 #   Adapted from numerical thermal model documented in: 
 #
 #   Hayne, P. O., Bandfield, J. L., 
@@ -22,7 +24,7 @@
 #
 #   Implement geometrically increasing grid spacing dz (requires different numerical solution)
 #   Access planetary parameters as an import from the planets.py database
-#   Create Planet and Model classes for reusability
+#   Create Planet and Model classes for reusability on other worlds
 #   
 #   Long-range: Create GUI
 
@@ -44,7 +46,7 @@ S = 1361. # Annual mean solar constant (W/m2)
 albedo = 0.12 # Mean Bond albedo for Moon
 epsilon = 0.98 # T7 emissivity (Vasavada et al.) 
 Sabs = S * (1.0 - albedo)
-P_moon = 29.53059*24.*3600. #Mean length of Moon SYNODIC day [s]
+P_moon = 29.53059*24.*3600. # Mean length of Moon SYNODIC day [s]
 a = 1e-08   # Value for lunar regolith thermal diffusivity provided by Hayne et al 2017
 #a = 1e-5 # try unrealistically high thermal diffusivity
 k = 0.6e-03     # Equatorial thermal conductivity in Wm-2K-1 (summarized by Hayne et al 2017 Table A2)
@@ -143,7 +145,7 @@ for n in range(0, Nt):
 
     T[0] = Ts
 
-    #Coefficients of top boundary condition in polynomial form
+    #Coefficients of top boundary condition in polynomial form, constant grid spacing dz (from Miller, in press)
     Kc0 = K_c[0]
     a0 = epsilon*sigma + 3/2/dz*Kc0*chi/(350**3)
     a1 = Kc0*chi/2/dz/(350**3)*(4*T_n[1] - T_n[2])
