@@ -54,7 +54,7 @@ q_c = 3.13e-6 # Cosmic background radiation flux [W m^-2] (Fixsen, 2009)
 # Nonlinear Moon parameters (from Hayne et al 2017)
 
 rho_d = 1800 # Deep layer density [kg m-3] Carrier et al 1991
-rho_s = 1100 # Deep layer density [kg m-3] Hayne et al 2013
+rho_s = 1100 # Surface layer density [kg m-3] Hayne et al 2013
 K_d = 3.4e-3 # Deep layer thermal conductivity [W m-1 K-1] Hayne et al 2017
 K_s = 7.4e-4 # Surface layer thermal conductivity [W m-1 K-1] Hayne et al 2017
 c0 = -3.6125 # Coefficients for specific heat capacity function [J kg-1 K-1] Hayne et al 2017
@@ -70,11 +70,11 @@ T_sfc = 250.0 # Initial temperature [K] at top boundary above the zeroth layer
 T_bot = 250.0 # Initial temperature [K] at bottom boundary below the last layer
 
 modelruntime = 2*24*P_moon/24
-dt = P_moon/24#1.0*3600 # timestep in seconds (1.0*3600*24 = 1 earth day)
+dt = 3600#1.0*3600 # timestep in seconds (1.0*3600*24 = 1 earth day)
 Nt = int(round(modelruntime/dt))   # Calculate number of timesteps (rounded and converted to integer)
 
 D = 1.0     # Thickness (depth) of entire slab/system [m] 
-dz = 0.175    # Thickness of each layer (dist. btwn gridpoints) [m]
+dz = 0.3    # Thickness of each layer (dist. btwn gridpoints) [m]
 Nz = int(round(D/dz))   # Calculate number of layers (rounded and converted to integer)
 
 F = a*dt/(dz**2)    # Mesh Fourier number - term in heat conduction equation
@@ -193,6 +193,7 @@ ax.set_xlabel("Time (lunar hours)")
 ax.set_ylabel("Surface temperature (K)")
 ax.annotate("Max temp: {:.0f} K".format(np.amax(Ts_array)), xy=(17,350))
 ax.annotate("Min temp: {:.0f} K".format(np.amin(Ts_array)), xy=(17,325))
+ax.annotate("dz: {} m".format(dz), xy=(1, 350))
 ax.set_title("Model lunar equatorial sfc temp, dynamic soil thermal model included")
 plt.show()
 
