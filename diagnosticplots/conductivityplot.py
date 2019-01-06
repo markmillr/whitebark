@@ -19,7 +19,7 @@ T_ = np.linspace(0, 400, 400)
 T = 250
 
 rho_d = 1800# Deep layer density [kg m-3] Carrier et al 1991
-rho_s = 1100# Deep layer density [kg m-3] Hayne et al 2013
+rho_s = 1100# Surface layer density [kg m-3] Hayne et al 2013
 rho_i = np.zeros(len(z_))
 chi = 2.7 # Radiative conductivity parameter Hayne et al 2017 and Vasavada et al 2012
 k_d = 3.4e-3 # Deep layer thermal conductivity [W m-1 K-1] Hayne et al 2017
